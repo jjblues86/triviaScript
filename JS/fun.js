@@ -29,7 +29,7 @@ questionsArr.push(new IdentifyFamousPeople(' ', 'img/jennifer.jpg', ['Jennifer L
 var famousPeopleContainer = document.getElementById('famous_people');
 
 function getQuestion() {
-  for (var i = questionNumber; i < questionsArr.length; i++ ){
+  for (var i = questionNumber; i < questionsArr.length; i++) {
     //Question Element
     var question = addTextElement('h2', 'id', 'question', famousPeopleContainer, questionsArr[i].question);
 
@@ -46,7 +46,7 @@ function getQuestion() {
     break;
   }
 
-  console.log('questionNumber',questionNumber);
+  console.log('questionNumber', questionNumber);
 }
 getQuestion();
 
@@ -71,6 +71,7 @@ function addImage(tag, attribute, value, famousPeopleContainer, image) {
   return element;
 }
 
+
 //get options and add event listeners
 function getOptions() {
   //get three options and store in variable
@@ -78,6 +79,7 @@ function getOptions() {
   var option2 = document.getElementById('option_2');
   var option3 = document.getElementById('option_3');
 
+  console.log('fdsffsdfsdfsdfsfs');
   //listen to the click event for each option
   option1.addEventListener('click', clickHandler);
   option2.addEventListener('click', clickHandler);
@@ -88,6 +90,15 @@ getOptions();
 // respond to the click on the options
 function clickHandler(event1) {
   var id = event1.target.id;
+  console.log('removeeeeeeeee');
+
+  var option1 = document.getElementById('option_1');
+  var option2 = document.getElementById('option_2');
+  var option3 = document.getElementById('option_3');
+
+  option1.removeEventListener('click', clickHandler);
+  option2.removeEventListener('click', clickHandler);
+  option3.removeEventListener('click', clickHandler);
 
   if (id === questionsArr[questionNumber].answer) {
     //display answer
@@ -104,21 +115,18 @@ function clickHandler(event1) {
 
   }
   questionNumber++;
-  
+
   // debugger;
-  // option1.removeEventListener('click', clickHandler);
-  // option2.removeEventListener('click', clickHandler);
-  // option3.removeEventListener('click', clickHandler);
-  var button  = addTextElement('button', 'id', 'next_button', famousPeopleContainer, 'Next');
+  var button = addTextElement('button', 'id', 'next_button', famousPeopleContainer, 'Next');
   button.addEventListener('click', nextQuestion);
-  
+
 }
 
 
 
-function nextQuestion (event2) {
+function nextQuestion(event2) {
   var id = event2.target.id;
-  if (id = 'next_button'){
+  if (id = 'next_button') {
     var h2Element = document.getElementById('question');
     h2Element.remove();
     var cropImage = document.getElementById('crop_image');
@@ -132,7 +140,8 @@ function nextQuestion (event2) {
     var nextButton = document.getElementById('next_button');
     nextButton.remove();
   }
-  if(questionNumber === 4){
+  if (questionNumber === 4) {
+    debugger;
     window.location = 'category.html';
     console.log('answer', questionNumber);
     return;
