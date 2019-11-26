@@ -260,8 +260,8 @@ function nextQuestion (event2) {
     getQuestion();
     getOptions();
 }
-////////////////////////////////////////////
-///      programming                   ////
+  //////////////////////////////////////////
+////      programming                  ////
 //////////////////////////////////////////
 
 
@@ -278,21 +278,3 @@ programQuestionArr.push(new ProgrammingQuestion('What does '==='mean in javascri
 programQuestionArr.push(new ProgrammingQuestion('What is the JavaScript syntax for printing values in Console?', ['print(5)', 'console.log(5);(correct)', 'console.print(5);'], 'option_2'));
 programQuestionArr.push(new ProgrammingQuestion('I designed a mechanical computer called the Analytical Engine who am I?',[' Bill Gates', 'Sylvester Stallone', 'Charles Babbage(correct)'], 'option_3'));
 programQuestionArr.push(new ProgrammingQuestion('What website do we use for version control?', ['GitHub', 'Slack', 'Googledocs'], 'option_1'));
-
-
-
-function getProgrammingQuestion() {
-  for (var i = 0; i < programQuestionArr.length; i++){
-    //Question Element
-    var programmingContainer = document.getElementById('programming');
-    console.log(document.getElementById('programming'))
-    var element = document.createElement('h2');
-
-    programmingContainer.appendChild(element);
-    console.log(element);
-    // addTextElement('h2', 'id', 'programmingQuestion', programmingContainer, programQuestionArr[i].question);
-    element.textContent = programQuestionArr[i].question;
-  }
-}
-console.log('test')
-getProgrammingQuestion();
