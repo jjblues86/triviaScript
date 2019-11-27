@@ -84,7 +84,7 @@ function renderProgress() {
   for (var qIndex = 0; qIndex <= lastQuestion; qIndex++) {
     progress.innerHTML += "<div class='prog' id=" + qIndex + "></div>";
   }
-  localStorage.setItem(progress);
+  // localStorage.setItem(renderProgress);
 }
 
 // counter render

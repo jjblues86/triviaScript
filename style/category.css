@@ -41,6 +41,14 @@ a {
   color: #ffffff;
 }
 
+.main-para{
+  padding: 25px;
+  text-align: center;
+  font-size: 1.5em;
+  font-family: 'Kalam', cursive;
+}
+
+
 #crop_image{
     width:80px;
     height: auto;

@@ -33,13 +33,20 @@ header {
 #nav li a{
     text-decoration: none;
   }
+
+
+#nav li a:hover{
+    text-decoration: none;
+    background-color: #ddd;
+    color: black;
+  }
   
   a {
     color: #ffffff;
   }
 
   footer {
-    color: #e100ff;
+    color: black;
     position: fixed;
     bottom: 0%;
     width: 100%;
@@ -107,6 +114,8 @@ header {
     border-radius: 5px;
     cursor: pointer;
     padding : 5px;
+    font-weight: bold;
+    color: blue;
 }
 .choice:hover{
     border : 2px solid grey;
@@ -164,6 +173,8 @@ header {
     box-shadow: 0px 5px 15px 0px;
     position: relative;
     display: none;
+    font-size: 2em;
+    color: green;
 }
 #scoreContainer img{
     position: absolute;

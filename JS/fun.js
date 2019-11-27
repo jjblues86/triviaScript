@@ -11,6 +11,7 @@ function IdentifyFamousPeople({ question = 'Who is this?' }, cropPicture, option
   this.fullPicture = fullPicture;
 }
 
+
 var correctAnswer = 0;
 var questionNumber = 0;
 var askQuestion = [];
@@ -91,10 +92,10 @@ function clickHandler(event1) {
     addTextElement('h3', 'id', 'answer', famousPeopleContainer, 'Correct!');
     correctAnswer++;
     console.log('correct', correctAnswer);
-    
+
     //display full image
     addImage('img', 'id', 'full_image', famousPeopleContainer, questionsArr[questionNumber].fullPicture);
-    
+
   }
   else {
     //display answer
@@ -111,7 +112,7 @@ function clickHandler(event1) {
   // debugger;
   var button = addTextElement('button', 'id', 'next_button', famousPeopleContainer, 'Next');
   button.addEventListener('click', nextQuestion);
-  localStorage.setItem(answer, questionNumber, correctAnswer, id);
+  // localStorage.setItem(answer, questionNumber, correctAnswer, id);
 }
 
 function nextQuestion(event2) {
@@ -135,7 +136,7 @@ function nextQuestion(event2) {
     console.log('answer', questionNumber);
     return;
   }
-  localStorage.setItem(id, answer);
+  // localStorage.setItem(id, answer);
   getQuestion();
   getOptions();
 }

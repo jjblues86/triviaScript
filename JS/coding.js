@@ -70,7 +70,7 @@ function renderQuestion() {
   choiceA.innerHTML = q.choiceA;
   choiceB.innerHTML = q.choiceB;
   choiceC.innerHTML = q.choiceC;
-  localStorage.setItem(q);
+  // localStorage.setItem(q);
 }
 
 
