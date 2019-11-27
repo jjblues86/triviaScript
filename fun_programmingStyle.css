@@ -3,7 +3,13 @@
     width: 150px;
     height: 20%;
     padding: 60px;
-} 
+}
+
+#full_image {
+    width: 400px;
+    height: auto;
+
+}
 
 #famous_btn {
     background-image: url(img/fun.jpg);
@@ -48,7 +54,7 @@
 
 #famous_people {
     text-align: center;
-    margin-top: 150px;
+    margin-top: 50px;
     
 }
 #programming {
@@ -59,7 +65,6 @@
     font-weight: bolder;
     margin: 20px;
     font-size: 2em;
-
 }
 
 #ul_element {

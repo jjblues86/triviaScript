@@ -87,9 +87,9 @@ function showQuiz(questions, quizContainer){
 
         var questionsLabelElem = document.createElement('label');
         questionsLabelElem.textContent = letter + ': ' + questions[i].answers[letter];
-        currentQuestionElem.appendChild(questionsLabelElem);
         var inputtElem = document.createElement('INPUT');
         inputtElem.setAttribute('type', 'radio');
+        currentQuestionElem.appendChild(questionsLabelElem);
         questionsLabelElem.appendChild(inputtElem);
         inputtElem.setAttribute('name', 'answerRadio' + i);
         inputtElem.setAttribute('value', 'answerVal' + i + letter);
