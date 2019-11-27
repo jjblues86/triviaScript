@@ -87,10 +87,10 @@ body {
     margin-right: auto;
 }
 
-#option_1:hover, #option_2:hover, #option_3:hover, #next_button:hover {
-    background-color: hotpink;
+/* #option_1:hover, #option_2:hover, #option_3:hover, #next_button:hover {
+    background-color: grey;
     transform: scale(1.03);
-}
+} */
 
 #next_button {
     margin: 20px;

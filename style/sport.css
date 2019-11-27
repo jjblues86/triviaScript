@@ -4,6 +4,7 @@
   font-size: 2em;
   transition-duration: 0.4s;
   margin-top: 2%;
+  margin-left: 15%;
   font-family: 'Kalam', cursive;
   text-align: center;
 }
@@ -30,7 +31,6 @@ header {
 body {
   margin: 0;
   padding: 0;
-  /* background-image: url("../img/purple-abstract.jpg"); */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   opacity: 1;
 }
@@ -59,8 +59,14 @@ nav{
   color: black;
 }
 
+
 a {
   color: #ffffff;
+}
+
+#scores{
+  font-size: 2em;
+  color: green;
 }
 
 #crop_image{
@@ -75,7 +81,6 @@ a {
 
 footer {
   color: black;
-  /* position: fixed; */
   bottom: 0%;
   width: 100%;
   text-align: center;
