@@ -2,6 +2,7 @@
 ///////////////////////////////////////////////////
 /////////   Famous People Category      ///////////
 ///////////////////////////////////////////////////
+
 //creating object for identifying famous people
 function IdentifyFamousPeople({ question = 'Who is this?' }, cropPicture, options, answer, fullPicture) {
   this.question = question;
@@ -14,13 +15,32 @@ function IdentifyFamousPeople({ question = 'Who is this?' }, cropPicture, option
 var correctAnswer = 0;
 var questionNumber = 0;
 var askQuestion = [];
-//adding all the objects to array
 var questionsArr = [];
-questionsArr.push(new IdentifyFamousPeople(' ', 'img/bradley.jpg', ['Bradley Cooper', 'Leonardo Di Caprio', 'Nicholas Cage'], 'option_1', 'img/bradleyFull.jpg'));
-questionsArr.push(new IdentifyFamousPeople(' ', 'img/dwayne.jpg', ['Robert Di Nero', 'Dwayne Johnson', 'Hugh Jackman'], 'option_2', 'img/dwayneFull.jpg'));
-questionsArr.push(new IdentifyFamousPeople(' ', 'img/gaga.jpg', ['Miley Cyrus', 'Madonna', 'Lady Gaga'], 'option_3', 'img/gagaFull.jpg'));
-questionsArr.push(new IdentifyFamousPeople('', 'img/messi.jpg', ['Christiano Ronaldo', 'Lionel Messi', 'David Beckham'], 'option_2', 'img/messiFull.jpg'));
-questionsArr.push(new IdentifyFamousPeople(' ', 'img/jennifer.jpg', ['Jennifer Lopez', 'Penelope Cruz', 'Jennifer Aniston'], 'option_1', 'img/jenniferFull.jpg'));
+
+if (localStorage.getItem('questionsArr') !== null) {
+
+  //getting string array from storage and placing it in variable
+  var localStorageQuestionsArrString = localStorage.getItem('questionsArr');
+  //changing into array from string 
+  var localStorageQuestionsArr = JSON.parse(localStorageQuestionsArrString);
+
+  //create object instance for each set of item in localStorageQuestionArr
+  for (var ii = 0; ii < localStorageQuestionsArr.length; ii++) {
+    questionsArr.push(new IdentifyFamousPeople(localStorageQuestionsArr[ii].question, localStorageQuestionsArr[ii].cropPicture, localStorageQuestionsArr[ii].options, localStorageQuestionsArr[ii].answer, localStorageQuestionsArr[ii].fullPicture));
+  }
+} else {
+
+  questionsArr.push(new IdentifyFamousPeople(' ', 'img/bradley.jpg', ['Bradley Cooper', 'Leonardo Di Caprio', 'Nicholas Cage'], 'option_1', 'img/bradleyFull.jpg'));
+  questionsArr.push(new IdentifyFamousPeople(' ', 'img/dwayne.jpg', ['Robert Di Nero', 'Dwayne Johnson', 'Hugh Jackman'], 'option_2', 'img/dwayneFull.jpg'));
+  questionsArr.push(new IdentifyFamousPeople(' ', 'img/gaga.jpg', ['Miley Cyrus', 'Madonna', 'Lady Gaga'], 'option_3', 'img/gagaFull.jpg'));
+  questionsArr.push(new IdentifyFamousPeople('', 'img/messi.jpg', ['Christiano Ronaldo', 'Lionel Messi', 'David Beckham'], 'option_2', 'img/messiFull.jpg'));
+  questionsArr.push(new IdentifyFamousPeople(' ', 'img/jennifer.jpg', ['Jennifer Lopez', 'Penelope Cruz', 'Jennifer Aniston'], 'option_1', 'img/jenniferFull.jpg'));
+
+  //Set question array to local storage
+  var questionsArrJSON = JSON.stringify(questionsArr);
+  localStorage.setItem('questionsArr', questionsArrJSON);
+}
+
 
 var famousPeopleContainer = document.getElementById('famous_people');
 
@@ -38,7 +58,6 @@ function getQuestion() {
     }
     break;
   }
-  console.log('questionNumber', questionNumber);
 }
 getQuestion();
 
@@ -66,7 +85,7 @@ function getOptions() {
   var option1 = document.getElementById('option_1');
   var option2 = document.getElementById('option_2');
   var option3 = document.getElementById('option_3');
-  console.log('fdsffsdfsdfsdfsfs');
+
   //listen to the click event for each option
   option1.addEventListener('click', clickHandler);
   option2.addEventListener('click', clickHandler);
@@ -77,11 +96,11 @@ getOptions();
 // respond to the click on the options
 function clickHandler(event1) {
   var id = event1.target.id;
-  console.log('removeeeeeeeee');
 
   var option1 = document.getElementById('option_1');
   var option2 = document.getElementById('option_2');
   var option3 = document.getElementById('option_3');
+
   option1.removeEventListener('click', clickHandler);
   option2.removeEventListener('click', clickHandler);
   option3.removeEventListener('click', clickHandler);
@@ -90,11 +109,10 @@ function clickHandler(event1) {
     //display answer
     addTextElement('h3', 'id', 'answer', famousPeopleContainer, 'Correct!');
     correctAnswer++;
-    console.log('correct', correctAnswer);
-    
+
     //display full image
     addImage('img', 'id', 'full_image', famousPeopleContainer, questionsArr[questionNumber].fullPicture);
-    
+
   }
   else {
     //display answer
@@ -103,8 +121,8 @@ function clickHandler(event1) {
     addImage('img', 'id', 'full_image', famousPeopleContainer, questionsArr[questionNumber].fullPicture);
   }
 
-  if (questionNumber === 3) {
-    addTextElement('h3', 'id', 'result',famousPeopleContainer, `You got ${correctAnswer} out of ${questionNumber} correct.`);
+  if (questionNumber === 4) {
+    addTextElement('h3', 'id', 'result', famousPeopleContainer, `You got ${correctAnswer} out of ${questionNumber} correct.`);
   }
   questionNumber++;
 

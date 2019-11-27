@@ -11,6 +11,14 @@ body{
   color: white;
 }
 
+#question, #answer {
+  color: black;
+}
+#full_image {
+  width: 400px;
+  height: auto;
+}
+
 .second{
   position: absolute;
   top: 50%;
