@@ -139,96 +139,9 @@ function submitHandler(event){
       correctNum++;
     }
 
-    // makeChart();
-    // chartData();
-
   }
   // localStorage.setItem(ourQuestions, userLetters, currentLetter);
   scoresContainer.innerHTML = correctNum + ' out of ' + ourQuestions.length;
 }
 
 quizContainer.addEventListener('submit', submitHandler);
-
-// to check the time OF THE DAY
-// var today = new Date();
-// var hourNow = today.getHours();
-// var greeting;
-
-// if(hourNow > 18) {
-//   greeting = 'Good evening!';
-// } else if (hourNow > 12) {
-//   greeting = 'Good afternoon!';
-// } else if (hourNow > 0) {
-//   greeting = 'Good morning!';
-// } else {
-//   greeting = 'Welcome';
-// }
-
-// document.write('<h3>' + greeting + '</h3>');
-
-// var makeChart = function(){
-//   document.getElementById('quiz').style.display = 'show';
-// };
-
-// // Creating a chart
-// function chartData(){
-//   var ctx = document.getElementById('myChart').getContext('2d');
-
-//   // dynamically rendering the background colors of each bar chart
-//   var randomColor = {
-//     beforeInit: function(chart) {
-//       var backgroundColor = [];
-//       var borderColor = [];
-
-//       // loop through every data available
-//       for(var i = 0; i < chart.config.data.datasets[0].data.length; i++){
-
-//         // generate random color
-//         var color = 'rgba(' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',' + Math.floor(Math.random() * 255) + ',';
-
-//         // push the new color to the background and border color arrays
-//         backgroundColor.push(color + '0.2)');
-//         borderColor.push(color + '1)');
-//       }
-
-//       // update the chart bars color properties
-//       chart.config.data.datasets[0].backgroundColor = backgroundColor;
-//       chart.config.data.datasets[0].borderColor = borderColor;
-
-//     }
-//   }
-
-//   // register the plugin to the chart's plugin service to activate it
-//   Chart.pluginService.register(randomColor);
-
-//   // var ctx = document.getElementById('myChart').getContext('2d');
-
-//   var imageChart = new Chart(ctx, {
-//     type: 'bar',
-//     data: {
-//       labels: ourQuestions,
-//       datasets : [{
-//         label: 'number of correct answers',
-//         data: correctNum,
-//         backgroundColor: [
-//           'rgba(255, 99, 132, 0.2)',
-//         ],
-//         borderColor: [
-//           'rgba(255, 99, 132, 1)',
-//         ],
-//         borderWidth: 1
-//       }]
-//     },
-//     options: {
-//       scales: {
-//         yAxes: [{
-//           ticks: {
-//             beginAtZero: true
-//           }
-//         }]
-//       }
-//     }
-//   });
-// }
-
-// localStorage.setItem(quizContainer, submitHandler, ourQuestions, currentLetter);
